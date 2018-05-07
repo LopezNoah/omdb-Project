@@ -4,18 +4,55 @@ import org.junit.Before;
 import org.junit.Test;
 
 
-public class OMDBModelTest {
-
-
-   /** Fixture initialization (common initialization
-    *  for all tests). **/
-   @Before public void setUp() {
-   }
-
-
-   /** A test that always fails. **/
-   @Test public void defaultTest() {
-      Assert.assertEquals("Default test added by jGRASP. Delete "
-            + "this test once you have added your own.", 0, 1);
-   }
+public class OMDBModelTest
+{
+    @Test
+    public void testGetMovie1()
+    {
+        OMDBModel m = new OMDBModel();
+        assertEquals(true, m.getMovie("Titanic"));
+    }
+    
+    @Test
+    public void testGetMovie2()
+    {
+        OMDBModel m = new OMDBModel();
+        assertEquals(false, m.getMovie("Fake Movie Title"));
+    }
+    /*
+    @Test
+    public void testGetTitle()
+    {
+    }
+    
+    @Test
+    public void testGetYear()
+    {
+    }
+    
+    @Test
+    public void testGetDirector()
+    {
+    }
+    
+    @Test
+    public void testGetActors()
+    {
+    }
+    
+    @Test
+    public void testGetGenre()
+    {
+    }
+    
+    @Test
+    public void testGetRuntime()
+    {
+    }
+    
+    @Test
+    public void testGetRating()
+    {
+    }
+*/
 }

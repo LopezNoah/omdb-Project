@@ -10,9 +10,28 @@
  * Purpose:    Main for the final project
 */
 
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+
 public class OMDBMain
 {
-    public static void main()
+    @Override
+    public void start(Stage stage) throws Exception
     {
+        AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResources("./OMDBView.fxml"));
+        Scene scene = new Scene(root);
+        
+        stage.setScene(scene);
+        stage.setTitle("CSCI-13 Final Project - Noah Lopez");
+        stage.show();
+    }
+        
+    public static void main(String[] args)
+    {
+        launch(args);
     }
 }
