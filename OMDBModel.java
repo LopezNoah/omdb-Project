@@ -17,6 +17,7 @@ import java.net.URLEncoder;
 import java.net.URL;
 import javafx.scene.image.Image;
 import com.google.gson.*;
+import java.lang.String;
 
 public class OMDBModel
 {
@@ -26,6 +27,8 @@ public class OMDBModel
     //Accessor for movie information
     public boolean getMovie(String movieTitle)
     {
+        //URL won't accept spaces, it needs '+'
+        movieTitle = movieTitle.replace(" ", "+");
         try
         {
             //Construct a OMDb movie url
@@ -40,6 +43,7 @@ public class OMDBModel
             *http://www.omdbapi.com/?apikey=bb79feb5&s=Transformers
             */
             //http://www.omdbapi.com/?apikey=bb79feb5&t=Transformers&type=movie
+            //http://www.omdbapi.com/?apikey=bb79feb5&t=The+Avengers&type=movie
             
             //Open the URL
             InputStream is = movieURL.openStream();
@@ -129,7 +133,7 @@ public class OMDBModel
     //Actors Accessor
     public String getActors()
     {
-        return jse.getAsJsonObject().get("Cast").getAsString();
+        return jse.getAsJsonObject().get("Actors").getAsString();
     }
     
     //Director Accessor
@@ -162,4 +166,23 @@ public class OMDBModel
         return Integer.parseInt( jse.getAsJsonObject().get("Year").getAsString() );
         //Change to include .get("Released") for whole release date?
     }
+    
+    //Unit test code---------------------------
+    
+    //Test driver for this class
+    public static void main(String[] args)
+    {
+        OMDBModel m1 = new OMDBModel();
+        m1.getMovie("The Avengers");
+        //Test accessors
+        System.out.println("Title:\t" + m1.getTitle());
+        System.out.println("Runtime:\t" + m1.getRuntime());
+        System.out.println("Actors:\t" + m1.getActors());
+        System.out.println("Director(s):\t" + m1.getDirector());
+        System.out.println("Writer(s):\t" + m1.getWriter());
+        System.out.println("Genre:\t" + m1.getGenre());
+        System.out.println("MPAA Rating:\t" + m1.getRating());
+        System.out.println("Year released:\t" + m1.getYear());
+    }
+    
 }
