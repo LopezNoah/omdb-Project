@@ -79,5 +79,5 @@ public class OMDBModelTest
         m.getMovie("Avengers");
         assertEquals("PG-13", m.getRating());
     }
-*/
+
 }

@@ -66,7 +66,7 @@ public class OMDBController
         
         if( e.getSource() == btnGo )
         {
-            String movieTitle = txtMovie.getTest();
+            String movieTitle = txtMovie.getText();
             if( movie.getMovie(movieTitle) )
             {
                 lblTitle.setText(movie.getTitle());
@@ -76,8 +76,8 @@ public class OMDBController
                 lblWriter.setText(movie.getWriters());
                 lblActors.setText(movie.getActors());
                 lblRated.setText(movie.getRating());
-                lblYear.setText(movie.getYear());
-                moviePoster.setImage(movie.getPoster);
+                lblYear.setText( String.valueOf(movie.getYear()) );
+                moviePoster.setImage(movie.getPoster());
             }
             else
             {
@@ -93,10 +93,11 @@ public class OMDBController
             }
         }
     }
-
+/*
     @Override
     public void initialize(URL url, ResourceBundle rb)
     {
         //TODO
     }
+*/
 }

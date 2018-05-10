@@ -24,31 +24,31 @@
         </rowConstraints>
          <children>
             <TextField fx:id="txtMovie" maxWidth="-Infinity" promptText="Enter a movie title" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="btnGo" mnemonicParsing="false" text="GO" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+            <Button fx:id="btnGo" mnemonicParsing="false" onAction="#handleButtonAction" text="GO" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="20.0" />
                </GridPane.margin>
             </Button>
-            <Label fx:id="lblRuntime" text="Run-time:" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-            <Label prefWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
-            <Label fx:id="lblYear" text="Year Released:" GridPane.rowIndex="1" />
-            <Label prefWidth="50.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-            <Label fx:id="lblGenre" text="Genre:" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <Label prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-            <Label fx:id="lblActors" text="Actors:" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-            <Label prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
-            <Label fx:id="lblDirector" text="Director:" GridPane.rowIndex="2" />
-            <Label prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
-            <Label fx:id="lblWriter" text="Writers:" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <Label prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-            <Label fx:id="lblTitle" text="Movie Title:" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
-            <Label prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+            <Label text="Run-time:" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Label fx:id="lblRuntime" prefWidth="75.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+            <Label text="Year Released:" GridPane.rowIndex="1" />
+            <Label fx:id="lblYear" prefWidth="50.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+            <Label text="Genre:" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+            <Label fx:id="lblGenre" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
+            <Label text="Actors:" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <Label fx:id="lblActors" prefWidth="200.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+            <Label text="Director:" GridPane.rowIndex="2" />
+            <Label fx:id="lblDirector" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+            <Label text="Writers:" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <Label fx:id="lblWriter" prefWidth="150.0" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
+            <Label text="Movie Title:" GridPane.columnIndex="1" GridPane.valignment="CENTER" />
+            <Label fx:id="lblTitle" prefWidth="200.0" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
                <GridPane.margin>
                   <Insets right="10.0" />
                </GridPane.margin>
             </Label>
-            <Label fx:id="lblRated" text="Rating:" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
-            <Label prefWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
+            <Label text="Rating:" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+            <Label fx:id="lblRated" prefWidth="50.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM" />
             <ImageView fx:id="moviePoster" fitHeight="237.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BASELINE" />
          </children>
       </GridPane>

@@ -29,6 +29,7 @@ public class OMDBModel
     {
         //URL won't accept spaces, it needs '+'
         movieTitle = movieTitle.replace(" ", "+");
+        //movieTitle = movieTitle.replace("&", "%26");
         try
         {
             //Construct a OMDb movie url
@@ -44,6 +45,7 @@ public class OMDBModel
             */
             //http://www.omdbapi.com/?apikey=bb79feb5&t=Transformers&type=movie
             //http://www.omdbapi.com/?apikey=bb79feb5&t=The+Avengers&type=movie
+            System.out.println("URL:\t" + movieURL);
             
             //Open the URL
             InputStream is = movieURL.openStream();
@@ -74,7 +76,6 @@ public class OMDBModel
     //Tests whether the movie title is valid
     public boolean isValid()
     {
-        //String response = jse.getAsJsonObject().get("Response").getAsString();
         try
         {
             String response = jse.getAsJsonObject().get("Response").getAsString();
@@ -87,16 +88,6 @@ public class OMDBModel
         {
             return false;
         }
-        
-        /*
-        if ( response.equals("False") )
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }*/
     }
     
     /*
@@ -126,8 +117,14 @@ public class OMDBModel
     //Poster Accessor
     public Image getPoster()
     {
+        //String posterURL = jse.getAsJsonObject().get("Poster").getAsString();
+        //return new Image(posterURL);
         String posterURL = jse.getAsJsonObject().get("Poster").getAsString();
-        return new Image(posterURL);
+        //checks to make sure poster URL exists
+        if( !posterURL.equals("N/A") )
+            return new Image(posterURL);
+        else
+            return new Image("invalidtitle.png");
     }
     
     //Actors Accessor
@@ -173,13 +170,14 @@ public class OMDBModel
     public static void main(String[] args)
     {
         OMDBModel m1 = new OMDBModel();
-        m1.getMovie("The Avengers");
+        //m1.getMovie("The Avengers");
+        m1.getMovie("Lilo & Stitch");
         //Test accessors
         System.out.println("Title:\t" + m1.getTitle());
         System.out.println("Runtime:\t" + m1.getRuntime());
         System.out.println("Actors:\t" + m1.getActors());
         System.out.println("Director(s):\t" + m1.getDirector());
-        System.out.println("Writer(s):\t" + m1.getWriter());
+        System.out.println("Writer(s):\t" + m1.getWriters());
         System.out.println("Genre:\t" + m1.getGenre());
         System.out.println("MPAA Rating:\t" + m1.getRating());
         System.out.println("Year released:\t" + m1.getYear());

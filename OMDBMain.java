@@ -17,12 +17,12 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
-public class OMDBMain
+public class OMDBMain extends Application
 {
     @Override
     public void start(Stage stage) throws Exception
     {
-        AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResources("./OMDBView.fxml"));
+        AnchorPane root = (AnchorPane) FXMLLoader.load(getClass().getResource("./OMDBView.fxml"));
         Scene scene = new Scene(root);
         
         stage.setScene(scene);
